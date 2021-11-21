@@ -13,8 +13,9 @@ function Header(props) {
 
     return (
       <div className="header-container">
-        <div>오늘 뭐 입지</div>
-        <div className="clock">{now}</div>
+        <div id="header-title">오늘 뭐 입지</div>
+        <div id="header-clock">{now}</div>
+        <div id="header-weather">현재 날씨</div>
       </div>
     );
   }

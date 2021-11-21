@@ -16,7 +16,9 @@ function Searchbar(props) {
         }
       fullAddress += (extraAddress !== '' ? ` (${extraAddress})` : '');
     }
-    //fullAddress -> 전체 주소반환
+    console.log(fullAddress);
+    props.setAddress(fullAddress);
+    props.setShow(false);
   }
   
   return (
