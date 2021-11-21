@@ -6,7 +6,7 @@ import Email from './email';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Email />
+    <App />
   </React.StrictMode>,
   document.getElementById('root')
 );

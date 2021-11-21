@@ -1,0 +1,13 @@
+.header-container{
+  background: rgb(158, 206, 180);
+  height: 4rem;
+  width: 100vw;
+}
+.clock{
+  position: absolute;
+  right: 50px;
+  display: flex;
+  line-height: 2rem;
+  color: white;
+  font-weight: bold;
+}
