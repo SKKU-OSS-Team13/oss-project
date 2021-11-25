@@ -9,11 +9,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.post('/api/weather', (req, res) => {
   console.log(req.body.lat, req.body.lng);
-  // latitude = 37.2783123;
-  // longitude = 127.1573989;
-  // new weather(latitude, longitude).weatherAPI().then((r) => {
-  //   res.send(r);
-  //   console.log('\n\n--result--\n', r);
   new weather(req.body.lat, req.body.lng).weatherAPI().then((r) => {
     res.send(r);
     console.log('\n\n--result--\n', r);
