@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- Bootstrap CSS -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css">
+    <!-- font -->
+    <link href="http://fonts.googleapis.com/earlyaccess/nanumpenscript.css" rel="stylesheet">
+
+
+	<title>오늘 뭐 입지?</title>
+	<style>
+        /*  */
+        .container{
+            width:650px;
+            height: 600px;
+            position: absolute;
+            border: 1px solid black;
+        }
+        .clothes-container{
+            width:300px;
+            height: 580px;
+            position: absolute;
+            top:10px;
+            left:10px;
+            
+        }
+        .style-container{
+            width:320px;
+            height: 580px;
+            position: absolute;
+            top:10px;
+            right:10px;
+            
+        }
+        .np{
+            font-family: 'Nanum Pen Script', cursive;
+            font-size: x-large;
+            font-weight: bold;
+        }
+        #newStyle{
+            color: white;
+        }
+        
+	</style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="clothes-container">
+            <div class="position-absolute top-0 start-0">
+                <div id="comment" class="np">오늘은 어떻게 입어야 할까요?</div>
+            </div>
+            <div class="position-absolute top-50 start-0">
+                <img id="clothes" src="clothes/1.jpg" alt='' width="250" height="90"></img>
+                <div id="clothes_text" class="np">무슨 옷?</div>
+            </div>
+        </div>
+  
+        <div class="style-container">
+            <img id="style" src="style/1/1.jpg" width="320" height="480" alt=''></img>
+            <div class="d-grid gap-2">
+                <button id="newStyle" class="btn btn-secondary np" type="button">New Style</button>
+            </div>
+        </div>
+    </div>
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+		crossorigin="anonymous"></script>
+
+	<script>
+
+        function selectClothes(){
+            let temp=15;
+            if(temp<=4){
+                clothes=1;
+                clothes_text="패딩, 두꺼운 코드, 목도리, 기모 제품";
+            }
+            else if(temp<=8){
+                clothes=2;
+                clothes_text="코트, 가죽 자켓, 니트, 레깅스";
+            }
+            else if(temp<=11){
+                clothes=3;
+                clothes_text="자켓, 트렌치코트, 니트, 청바지, 스타킹";
+            }
+            else if(temp<=16){
+                clothes=4;
+                clothes_text="자켓, 가디건, 야상, 청바지, 면바지";
+            }
+            else if(temp<=19){
+                clothes=5;
+                clothes_text="얇은 니트, 맨투맨, 가디건, 청바지";
+            }
+            else if(temp<=22){
+                clothes=6;
+                clothes_text="얇은 가디건, 긴팔, 면바지, 청바지";
+            }
+            else if(temp<=27){
+                clothes=7;
+                clothes_text="반팔, 얇은 셔츠, 반바지, 면바지";
+            }
+            else{
+                clothes=8;
+                clothes_text="민소매, 반팔, 반바지, 원피스";
+            }
+        }
+
+        function comment(){
+            let high_temp=15;
+            let low_temp=5;
+            let precipitation=50;
+            let comment;
+            if(high_temp-low_temp>=10){
+                comment="일교차가 크니 겉옷을 챙기세요.\n"
+            }
+            if(precipitation >=50){
+                comment+="비가 올 수 있으니 우산을 챙기세요.\n"
+            }
+            return comment;
+        }
+
+        let clothes, clothes_text;
+        selectClothes();
+        document.getElementById("clothes").src="clothes/"+clothes+".jpg";
+        document.getElementById("clothes_text").innerText=clothes_text;
+        let style=1;
+        document.getElementById("style").src="style/"+clothes+"/"+style+".jpg";
+        document.getElementById("comment").innerText=comment();
+
+        document.querySelector("#newStyle").addEventListener("click", () => {
+            if(style===3) style=1;
+            else style+=1;
+            document.getElementById("style").src="style/"+clothes+"/"+style+".jpg";
+        })
+
+	</script>
+</body>
+
+</html>
