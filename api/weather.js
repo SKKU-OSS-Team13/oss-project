@@ -85,9 +85,16 @@ module.exports = class WeatherApiHandler {
   }
 
   getBaseTime = () => {
-    // 시간이 2시 10분 이전이면 전날의 가장 늦은 base_time인 2300의 값으로 불러서 예보하기
     // 0200 0500 0800 1100 1400 1700 2000 2300
-    // 각 시간대별로 10분 이후마다 basetime 바꿔주기
+
+    // 00 ~ 02시: 전날 2300
+    // 03 ~ 05시: 당일 0200
+    // 06 ~ 08시: 당일 0500
+    // 09 ~ 11시: 당일 0800
+    // 12 ~ 14시: 당일 1100
+    // 15 ~ 17시: 당일 1400
+    // 18 ~ 20시: 당일 1700
+    // 21 ~ 23시: 당일 2000 (23:59까지)
 
     let date = new Date();
     let year = date.getFullYear();
@@ -102,8 +109,8 @@ module.exports = class WeatherApiHandler {
       `현재시간: ${year}년 ${month}월 ${day}일 ${hours}시 ${minutes}분`
     );
 
-    if (hours < 2 || (hours === 2 && minutes < 11)) {
-      // 전날 2300 데이터 사용
+    if (hours < 3) {
+      // 전날 2300 데이터
       let yesterday = new Date(date.setDate(date.getDate() - 1));
       year = yesterday.getFullYear();
       month = ('0' + (1 + yesterday.getMonth())).slice(-2);
@@ -112,48 +119,42 @@ module.exports = class WeatherApiHandler {
       dateAndTime['date'] = year + month + day;
       dateAndTime['time'] = '2300';
       console.log('날짜와 시간: ' + dateAndTime.date + ', ' + dateAndTime.time);
-    } else if (hours < 5 || (hours === 5 && minutes < 11)) {
+    } else if (hours < 6) {
       // 0200
       dateAndTime['date'] = year + month + day;
       dateAndTime['time'] = '0200';
       console.log('날짜와 시간: ' + dateAndTime.date + ', ' + dateAndTime.time);
-    } else if (hours < 8 || (hours === 8 && minutes < 11)) {
+    } else if (hours < 9) {
       // 0500
       dateAndTime['date'] = year + month + day;
       dateAndTime['time'] = '0500';
       console.log('날짜와 시간: ' + dateAndTime.date + ', ' + dateAndTime.time);
-    } else if (hours < 11 || (hours === 11 && minutes < 11)) {
+    } else if (hours < 12) {
       // 0800
       dateAndTime['date'] = year + month + day;
       dateAndTime['time'] = '0800';
       console.log('날짜와 시간: ' + dateAndTime.date + ', ' + dateAndTime.time);
-    } else if (hours < 14 || (hours === 14 && minutes < 11)) {
+    } else if (hours < 15) {
       // 1100
       dateAndTime['date'] = year + month + day;
       dateAndTime['time'] = '1100';
       console.log('날짜와 시간: ' + dateAndTime.date + ', ' + dateAndTime.time);
-    } else if (hours < 17 || (hours === 17 && minutes < 11)) {
+    } else if (hours < 18) {
       // 1400
       dateAndTime['date'] = year + month + day;
       dateAndTime['time'] = '1400';
       console.log('날짜와 시간: ' + dateAndTime.date + ', ' + dateAndTime.time);
-    } else if (hours < 20 || (hours === 20 && minutes < 11)) {
+    } else if (hours < 21) {
       // 1700
       dateAndTime['date'] = year + month + day;
       dateAndTime['time'] = '1700';
       console.log('날짜와 시간: ' + dateAndTime.date + ', ' + dateAndTime.time);
-    } else if (hours < 23 || (hours === 23 && minutes < 11)) {
+    } else if (hours < 24) {
       // 2000
       dateAndTime['date'] = year + month + day;
       dateAndTime['time'] = '2000';
       console.log('날짜와 시간: ' + dateAndTime.date + ', ' + dateAndTime.time);
-    } else {
-      // 2300
-      dateAndTime['date'] = year + month + day;
-      dateAndTime['time'] = '2300';
-      console.log('날짜와 시간: ' + dateAndTime.date + ', ' + dateAndTime.time);
     }
-
     return dateAndTime;
   };
 
@@ -177,27 +178,49 @@ module.exports = class WeatherApiHandler {
   // TODO: 최고, 최저기온 발표 시간은 정해져있으므로 거기서 따와야함
   // 최저: 당일 0600
   // 최고: 당일 1500
-
   parsingJSON = (json) => {
     try {
       let data = json.response.body.items.item;
       console.log('\nparsing: ', data.length);
       let weather = [];
       let info = {};
-      let fcstTime = '0600'; // 기본은 0600시
-      // let fcstTime = data[0].baseTime;
+
+      // 날짜 관련
+      let date = new Date();
+      let year = date.getFullYear();
+      let month = ('0' + (1 + date.getMonth())).slice(-2);
+      let day = ('0' + date.getDate()).slice(-2);
+
+      let baseDate = year + month + day; // 호출 날짜
+      let requestHour = date.getHours(); // API를 호출한 시간대
+      let fcstTime = data[0].fcstTime;
+
+      // 받아온 시간동안 온도 저장할 배열 (여기서 최저, 최고 뽑기)
+      let temp = [];
+
       for (let i = 0; i < data.length; i++) {
         let item = data[i];
+
+        // 동일한 날짜에 이른 시각의 값이 넘어오면 skip
+        if (
+          baseDate === item.baseDate &&
+          Number(item.fcstTime.slice(0, 2)) < requestHour
+        ) {
+          fcstTime = item.fcstTime;
+          continue;
+        }
+
         if (fcstTime !== item.fcstTime) {
-          // console.log('날짜: ' + item.fcstDate);
-          // console.log('시간: ' + item.fcstTime);
-          weather.push(info);
+          if (Object.keys(info).length !== 0) {
+            weather.push(info);
+          }
           info = {};
           fcstTime = item.fcstTime;
         }
         switch (item.category) {
           case 'TMP':
             info.temp = item.fcstValue;
+            temp.push(Number(item.fcstValue));
             break;
           case 'TMN':
             info.minTemp = item.fcstValue;
@@ -243,7 +266,11 @@ module.exports = class WeatherApiHandler {
         info.time = item.fcstTime;
       }
       weather.push(info);
-      // console.log(weather);
+      console.log('온도 배열: ' + temp);
+      weather.push({
+        minTemp: Math.min.apply(null, temp),
+        maxTemp: Math.max.apply(null, temp),
+      });
       return weather;
     } catch (err) {
       console.log(err);

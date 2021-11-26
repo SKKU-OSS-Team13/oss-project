@@ -94,8 +94,13 @@ function WeatherContainer({ lat, lng }) {
           <TableBody>
             {weather
               ? weather.map((c, index) => {
-                  if (index > 10) return null;
-                  if (Object.keys(c).length !== 0) {
+                  if (index > 9) {
+                    // 최고온도, 최저온도
+                    console.log(
+                      `최저 온도: ${c.minTemp}, 최고 온도: ${c.maxTemp}`
+                    );
+                    return null;
+                  } else {
                     return (
                       <TableRow
                         key={index}
@@ -125,8 +130,6 @@ function WeatherContainer({ lat, lng }) {
                         </TableCell>
                       </TableRow>
                     );
-                  } else {
-                    return null;
                   }
                 })
               : '날씨 불러오는 중 ...'}
