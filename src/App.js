@@ -5,6 +5,7 @@ import Searchmodal from './Components/Searchmodal';
 import Footer from './Components/Footer';
 import WeatherComponent from './Components/WeatherComponent';
 import CurrentWeatherBlock from './Components/CurrentWeatherBlock';
+import axios from 'axios';
 
 function App() {
   const [show, setShow] = useState(false);
@@ -37,6 +38,25 @@ function App() {
     );
   }, []);
 
+  // 검색한 주소로 위도, 경도 검색
+  useEffect(() => {
+    axios({
+      method: 'GET',
+      url: `https://dapi.kakao.com/v2/local/search/address.json?query=${address}`,
+      headers: { Authorization: 'KakaoAK a500b3de2fa1e2a6efd5565a633e1ccb' },
+    })
+      .then((res) => {
+        console.log(res);
+        console.log(res.data.documents[0]);
+
+        setLocation({
+          lat: Number(res.data.documents[0].y),
+          lng: Number(res.data.documents[0].x),
+        });
+      })
+      .catch((err) => console.log(err));
+  }, [address]);
+
   // 날씨 호출 API
   // 위도, 경도 값이 바뀔때마다 호출?
   useEffect(() => {
@@ -57,7 +77,6 @@ function App() {
       .then((res) => {
         console.log(res); // 결과를 console창에 표시합니다.
         setWeather(res);
-        console.log('set weather: ' + weather.length);
       });
   }, [location, weather.length]);
 
@@ -73,6 +92,7 @@ function App() {
           setShow={setShow}
           setAddress={setAddress}
         ></Searchmodal>
+        {console.log(`현재 위치: ${location.lat}, ${location.lng}`)}
         {weather ? (
           <CurrentWeatherBlock weather={weather[0]}></CurrentWeatherBlock>
         ) : (
