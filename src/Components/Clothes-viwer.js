@@ -62,7 +62,7 @@ function ClothesViwer(weather) {
     return <img src={source} style={{width: "380px", height:"570px"}}></img>
   }
   const handleClick = () => {
-    if(style === 3) setStyle(1);
+    if(style === 5) setStyle(1);
     else setStyle(style + 1);
   }
   console.log(weather)
