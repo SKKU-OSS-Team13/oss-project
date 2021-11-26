@@ -1,0 +1,17 @@
+.clothes-container{
+  display:flex;
+  flex-direction: row;
+}
+.clothes-left{
+  flex-direction: column;
+}
+#clothes-comment{
+  white-space: pre-wrap;
+}
+#clothes-style{
+  display: flex;
+  flex-direction: column;
+  width: 370px;
+  height: 600px;
+  right: 0;
+}

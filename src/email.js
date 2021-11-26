@@ -1,10 +1,10 @@
 import React, { useRef } from 'react';
 import emailjs from 'emailjs-com';
+import Crontab from 'reactjs-crontab'
 
 const Email = () => {
   const templateParams = {
     send_to: 'sc4259@naver.com',
-    reply_to: 'st42597@gmail.com',
     temperature: 11
   };
 
@@ -17,13 +17,28 @@ const Email = () => {
       });
   };
 
+  const tasks = React.useMemo(
+    () => [
+      {
+        fn: sendEmail,
+        config: '* 9 * * *'
+        // this runs every minutes
+      }
+    ],
+    []
+  )
+
   return (
     <div>
-      <button
-        onClick = {() => sendEmail()}
-      >
-        SendEamil
-      </button>
+      <Crontab
+        tasks={tasks}
+        timeZone='local'
+        // timezone is UTC timezone.
+        dashboard={{
+          hidden: false
+          // if true, dashboard is hidden
+        }}
+     />
     </div>
   );
 };

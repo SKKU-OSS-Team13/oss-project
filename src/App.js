@@ -2,9 +2,10 @@ import './App.css';
 import {useState, useEffect} from 'react';
 import Header from './Components/Header';
 import Searchmodal from './Components/Searchmodal';
+import Email from './email';
 import WeatherComponent from './Components/WeatherComponent';
 import CurrentWeatherBlock from './Components/CurrentWeatherBlock';
-import Clothes from './Components/Clothes';
+import ClothesViwer from './Components/Clothes-viwer';
 import Footer from './Components/Footer';
 function App() {
   const [show, setShow] = useState(false);
@@ -80,10 +81,12 @@ function App() {
               )}
           </div>
           <div id="main-clothes">
+            <ClothesViwer></ClothesViwer>
           </div>
         </div>
       </div>
       <Footer></Footer>
+      <Email></Email>
     </div>
   );
 }
