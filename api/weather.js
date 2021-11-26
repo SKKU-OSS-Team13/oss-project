@@ -203,7 +203,7 @@ module.exports = class WeatherApiHandler {
 
         // 동일한 날짜에 이른 시각의 값이 넘어오면 skip
         if (
-          baseDate === item.baseDate &&
+          baseDate === item.fcstDate &&
           Number(item.fcstTime.slice(0, 2)) < requestHour
         ) {
           fcstTime = item.fcstTime;
@@ -220,7 +220,10 @@ module.exports = class WeatherApiHandler {
         switch (item.category) {
           case 'TMP':
             info.temp = item.fcstValue;
-            temp.push(Number(item.fcstValue));
+            // 출력하는 데이터만큼의 온도만 저장
+            if (temp.length < 10) {
+              temp.push(Number(item.fcstValue));
+            }
             break;
           case 'TMN':
             info.minTemp = item.fcstValue;
@@ -267,10 +270,12 @@ module.exports = class WeatherApiHandler {
       }
       weather.push(info);
       console.log('온도 배열: ' + temp);
-      weather.push({
-        minTemp: Math.min.apply(null, temp),
-        maxTemp: Math.max.apply(null, temp),
-      });
+      weather[0].minTemp = Math.min.apply(null, temp);
+      weather[0].maxTemp = Math.max.apply(null, temp);
+      // weather.push({
+      //   minTemp: Math.min.apply(null, temp),
+      //   maxTemp: Math.max.apply(null, temp),
+      // });
       return weather;
     } catch (err) {
       console.log(err);
