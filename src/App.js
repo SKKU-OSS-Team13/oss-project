@@ -2,7 +2,9 @@ import './App.css';
 import {useState} from 'react';
 import Header from './Components/Header';
 import Searchmodal from './Components/Searchmodal';
+import ClothesViwer from './Components/Clothes-viwer';
 import Footer from './Components/Footer';
+import Email from './email';
 function App() {
   const [show, setShow] = useState(false);
   const [address, setAddress] = useState('검색창을 눌러 주소를 입력해주세요');
@@ -19,10 +21,12 @@ function App() {
           <div id="main-weather">
           </div>
           <div id="main-clothes">
+            <ClothesViwer></ClothesViwer>
           </div>
         </div>
       </div>
       <Footer></Footer>
+      <Email></Email>
     </div>
   );
 }
