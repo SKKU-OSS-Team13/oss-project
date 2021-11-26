@@ -2,11 +2,11 @@ import './Clothes-viwer.css';
 import {useState} from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
 
-function ClothesViwer() {
+function ClothesViwer(weather) {
   const [style, setStyle] = useState(1);
   let clothes, clothesText;
-  const selectClothes = () => {
-    let temp = 10;
+  const selectClothes = (weather) => {
+    let temp = weather.weather.temp;
     if(temp<=4){
       clothes = 1;
       clothesText = "패딩, 두꺼운 코드, 목도리, 기모 제품";
@@ -40,10 +40,10 @@ function ClothesViwer() {
       clothesText = "민소매, 반팔, 반바지, 원피스";
     }
   }
-  const makeComment = () => {
-    let high_temp=15;
-    let low_temp=5;
-    let precipitation=50;
+  const makeComment = (weather) => {
+    let high_temp=weather.weather.maxTemp;
+    let low_temp=weather.weather.maxTemp;
+    let precipitation=weather.weather.precipation;
     let comment1 = "";
     if(high_temp - low_temp >= 10){
         comment1 += "일교차가 크니 겉옷을 챙기세요.\n"
@@ -65,13 +65,16 @@ function ClothesViwer() {
     if(style === 3) setStyle(1);
     else setStyle(style + 1);
   }
+  console.log(weather)
 
-  selectClothes();
+  selectClothes(weather);
+
   return (
     <div className="clothes-container">
+      {console.log(weather)}
       <div className="clothes-left">
         <div><h4>오늘은 어떻게 입어야 할까요?</h4></div>
-        <div id="clothes-comment">{makeComment()}</div>
+        <div id="clothes-comment">{makeComment(weather)}</div>
         <div id="clothes-clothes">
           {loadClothesImage()}
           {clothesText}

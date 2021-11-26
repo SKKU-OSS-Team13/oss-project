@@ -1,8 +1,13 @@
 # Getting Started with Create React App
 
+## Name of our web-page
+: 오늘 뭐 입지?
+
+## Installation  
+npm~~
 
 ## A brief overview
-Our web page recommends clothes based on weather. After receiving the user's location and current time automatically,  
+Our web page("오늘 뭐 입지?") recommends clothes based on weather. After receiving the user's location and current time automatically,  
 it shows :
 1. the weather from now to after 10 hours, and recommended clothes accordingly.(The user can also set the location through regional search)
 
@@ -14,18 +19,14 @@ it shows :
    
 Also, the weather and recommended clothes are sent to the user's e-mail every morning if user wants.  
 
+## screenshots
 
-## Links to resources
+## demo vidio
 
-## Installation  
-
-## API reference  
-
-## Examples  
+## API reference 
+날씨 api, 주소 검색  
 
 ## Releases (versions)  
-
-## How to contribute 
 
 ## License  
 This project is licensed under the terms of the MIT license.
@@ -37,32 +38,3 @@ This project is licensed under the terms of the MIT license.
 • Constructive feedback  
 
 ---
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
