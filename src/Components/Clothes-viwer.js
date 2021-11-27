@@ -7,7 +7,7 @@ function ClothesViwer(weather) {
   let clothes,
     clothesText = [];
   const selectClothes = (weather) => {
-    let temp = weather.weather.temp;
+    let temp = weather.weather[0].temp;
     if (temp <= 4) {
       clothes = 1;
       clothesText = ['패딩', '두꺼운 코드', '목도리', '기모 제품'];
@@ -37,14 +37,23 @@ function ClothesViwer(weather) {
 
   const makeComment = (weather) => {
     console.log('weather', weather);
-    let high_temp = weather.weather.maxTemp;
-    let low_temp = weather.weather.minTemp;
-    let precipitation = weather.weather.precipitation;
+    let high_temp =weather.weather[0].maxTemp;
+    let low_temp = weather.weather[0].minTemp;
+    let umbrella=false;
+    console.log(weather.weather[0].precipitation);
+    for(let i=0;i<11;i++){
+      let precipitation = weather.weather[i].precipitation;
+      if(Number(precipitation.substring(0,precipitation.length-1)) >= 40){
+        umbrella=true;
+        break;
+      }
+    }
+    
     let comment1 = '';
     if (high_temp - low_temp >= 5) {
       comment1 += '일교차가 크니 겉옷을 챙기세요.\n';
     }
-    if (Number(precipitation.substring(0,precipitation.length-1)) >= 40) {
+    if (umbrella) {
       comment1 += '비가 올 수 있으니 우산을 챙기세요.\n';
     }
     return comment1;
