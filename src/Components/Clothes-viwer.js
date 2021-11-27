@@ -37,7 +37,7 @@ function ClothesViwer(weather) {
   const makeComment = (weather) => {
     console.log("weather", weather);
     let high_temp = weather.weather.maxTemp;
-    let low_temp = weather.weather.maxTemp;
+    let low_temp = weather.weather.minTemp;
     let precipitation = weather.weather.precipation;
     let comment1 = '';
     if (high_temp - low_temp >= 5) {
@@ -54,7 +54,7 @@ function ClothesViwer(weather) {
   };
   const loadStyleImage = () => {
     let source = '/img/style/' + clothes + '/' + style + '.jpg';
-    return <img src={source} style={{ width: '380px', height: '570px' }}></img>;
+    return <img src={source} style={{ width: '365px', height: '550px' }}></img>;
   };
   const handleClick = () => {
     if (style === 5) setStyle(1);
@@ -68,24 +68,26 @@ function ClothesViwer(weather) {
   return (
     <div className="clothes-container">
       {console.log(weather)}
-      <div className="clothes-left">
-        <div style={{margin: "10px 0"}}>
+      <div className="clothes-left" style={{margin: "10px auto"}}>
+        <div>
           <h4>오늘은 어떻게 입어야 할까요?</h4>
         </div>
         <div id="clothes-comment">{makeComment(weather)}</div>
         <div id="clothes-clothes" style={{margin: "10px 0"}}>
           {loadClothesImage()}
         </div>
-        <h4 style={{margin: "20px auto"}}>오늘의 추천 스타일!</h4>
-        <ul style={{margin: "10px auto", fontSize: "20px"}}>
+        
+        <ul style={{margin: "10px 0", fontSize: "20px"}}>
           {clothesText.map((text) => <li>{text}</li>)}
         
         </ul>
       </div>
 
-      <div id="clothes-style">
+      <div id="clothes-style" style={{margin: "10px auto"}}>
+        <h4>오늘의 추천 스타일!</h4>
+        <button onClick={handleClick} style={{width: "150px", right: "0px"}}>New Style</button>
         {loadStyleImage()}
-        <button onClick={handleClick} style={{width: "380px"}}>New Style</button>
+        
       </div>
     </div>
   );
