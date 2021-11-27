@@ -1,36 +1,40 @@
 .header-container {
-  background: rgb(158, 206, 180);
-  height: 4rem;
+  background: rgb(54, 82, 105);
+  height: 5rem;
   width: 100vw;
 }
 
 #header-logo {
   position: absolute;
-  left: 50px;
+  top: 5px;
+  left: 530px;
   display: flex;
 }
 #header-title {
   position: absolute;
-  left: 160px;
+  left: 640px;
   display: flex;
-  line-height: 4rem;
+  line-height: 5rem;
+  font-family: "Cafe24";
   color: white;
-  font-size: 30px;
+  font-size: 40px;
   font-weight: bold;
 }
 #header-weather {
   position: absolute;
   right: 50px;
   display: flex;
-  line-height: 2.5rem;
+  font-family: "Cafe24";
+  line-height: 3.5rem;
   color: white;
-  font-weight: bold;
+  font-weight: lighter;
 }
 #header-clock {
   position: absolute;
   right: 50px;
   display: flex;
-  line-height: 5.5rem;
+  font-family: "Cafe24";
+  line-height: 6.5rem;
   color: white;
-  font-weight: bold;
+  font-weight: normal;
 }

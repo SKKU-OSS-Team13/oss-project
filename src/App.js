@@ -92,12 +92,12 @@ function App() {
       <Header></Header>
       <div id="main-wrapper">
         <div id="main-top">
-          <div
-            id="main-searchbar"
-            onClick={hadleClick}
-            style={{ margin: 'auto 100px' }}
-          >
-            &nbsp;&nbsp;&nbsp;현재 위치&nbsp;&nbsp;|&nbsp;&nbsp;{address}
+          <div id="main-searchbar" onClick={hadleClick}>
+            <img id="search-icon" src="search.png" width="25" height="25" alt="" style={{marginLeft:"10px"}}></img>
+            <div class="searchbar-text">
+              &nbsp;&nbsp;&nbsp;현재 위치&nbsp;&nbsp; | &nbsp;&nbsp;{address}
+            </div>
+            
           </div>
           <div style={{ margin: '0 100px' }}>
             <Searchmodal
