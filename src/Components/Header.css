@@ -1,18 +1,24 @@
-.header-container{
+.header-container {
   background: rgb(158, 206, 180);
   height: 4rem;
   width: 100vw;
 }
-#header-title{
+
+#header-logo {
   position: absolute;
   left: 50px;
+  display: flex;
+}
+#header-title {
+  position: absolute;
+  left: 160px;
   display: flex;
   line-height: 4rem;
   color: white;
   font-size: 30px;
   font-weight: bold;
 }
-#header-weather{
+#header-weather {
   position: absolute;
   right: 50px;
   display: flex;
@@ -20,7 +26,7 @@
   color: white;
   font-weight: bold;
 }
-#header-clock{
+#header-clock {
   position: absolute;
   right: 50px;
   display: flex;

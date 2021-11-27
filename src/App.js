@@ -109,7 +109,11 @@ function App() {
             )}
           </div>
           <div id="main-clothes">
-            <ClothesViwer></ClothesViwer>
+            {weather ? (
+              <ClothesViwer weather={weather[0]}></ClothesViwer>
+            ) : (
+              '날씨 불러오는 중...'
+            )}
           </div>
         </div>
       </div>
