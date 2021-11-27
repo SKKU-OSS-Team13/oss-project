@@ -1,70 +1,65 @@
-# Getting Started with Create React App
+# 오늘 뭐 입지?
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+현재 날씨에 따른 옷차림을 추천해주는 웹 페이지 입니다.
 
-## Available Scripts
+## A brief overview
 
-In the project directory, you can run:
+Our web page("오늘 뭐 입지?") recommends clothes based on weather. After receiving the user's location and current time automatically,  
+it shows :
 
-### `npm start`
+1. the weather from now to after 10 hours, and recommended clothes accordingly.(The user can also set the location through regional search)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+2. the recommended clothes according to the temperature as the most basic clothing image and text.
+3. the recommendation text to pack umbrellas or outerwear depending on the probability of precipitation and daily temperature difference.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+4. a full-body coordination picture that people wear at the current temperature, and show another recommended coordination picture when clicking the button.
 
-### `npm test`
+Also, the weather and recommended clothes are sent to the user's e-mail every morning if user wants.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Installation
 
-### `npm run build`
+```
+git clone https://github.com/SKKU-OSS-Team13/oss-project.git
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+npm install
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+npm start
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## How to use
 
-### `npm run eject`
+1. 홈페이지에 접속한다.
+2. 처음 접속하면 현재 위치를 기반으로 날씨 정보와 옷차림을 추천하여 보여준다.
+3. 위치 검색을 통해 특정 지역을 검색하여 옷차림을 추천받을 수 있다.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## screenshots
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### 현재 위치 기반 날씨 정보와 옷차림 추천
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### 위치 검색을 통해 특정 지역의 날씨 정보와 옷차림 추천
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### 이메일 받기
 
-## Learn More
+## demo video
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## API reference
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- [기상청 단기예보 조회 서비스](https://www.data.go.kr/data/15084084/openapi.do)
+- [다음 위치 검색 API](https://postcode.map.daum.net/guide)
+- [Kakao developers 로컬 API](https://developers.kakao.com/docs/latest/ko/local/common)
+- 이메일
 
-### Code Splitting
+## Releases (versions)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## License
 
-### Analyzing the Bundle Size
+This project is licensed under the terms of the MIT license.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Code of Conduct
 
-### Making a Progressive Web App
+• Safe work environments  
+• Mutual respect  
+• Empathy and kindness  
+• Constructive feedback
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+---
