@@ -39,12 +39,12 @@ function ClothesViwer(weather) {
     console.log('weather', weather);
     let high_temp = weather.weather.maxTemp;
     let low_temp = weather.weather.minTemp;
-    let precipitation = weather.weather.precipation;
+    let precipitation = weather.weather.precipitation;
     let comment1 = '';
     if (high_temp - low_temp >= 5) {
       comment1 += '일교차가 크니 겉옷을 챙기세요.\n';
     }
-    if (precipitation >= 0) {
+    if (Number(precipitation.substring(0,precipitation.length-1)) >= 40) {
       comment1 += '비가 올 수 있으니 우산을 챙기세요.\n';
     }
     return comment1;
