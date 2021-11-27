@@ -39,16 +39,22 @@ function CurrentWeatherBlock(weather) {
   };
 
   return (
-    <div className="weather__block">
-      <img
-        src={selectIcon(weather.weather.sky, weather.weather.pty)}
-        alt="날씨 아이콘"
-        width="50"
-      />
-      <p>현재 온도: {weather.weather.temp}</p>
-      <p>
-        최저: {weather.weather.minTemp} / 최고: {weather.weather.maxTemp}
-      </p>
+    <div className="weather__block" style={{display: "flex", flexDirection: "row", margin: "auto 0"}}>
+      <div>
+        <img
+          src={selectIcon(weather.weather.sky, weather.weather.pty)}
+          alt="날씨 아이콘"
+          width="70px"
+          style={{margin: "0 20px"}}
+        />
+      </div>
+      <div>
+        <p>현재 온도: {weather.weather.temp} &deg;C </p>
+        <p>
+          최저: {weather.weather.minTemp} &deg;C / 최고: {weather.weather.maxTemp} &deg;C
+        </p>
+      </div>
+      
     </div>
   );
 }

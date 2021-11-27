@@ -86,20 +86,25 @@ function App() {
     <div className="main-page">
       <Header></Header>
       <div id="main-wrapper">
-        <div id="main-searchbar" onClick={hadleClick}>
-          &nbsp;&nbsp;&nbsp;현재 위치&nbsp;&nbsp;|&nbsp;&nbsp;{address}
+        <div id="main-top">
+          <div id="main-searchbar" onClick={hadleClick} style={{margin: "auto 100px"}}>
+            &nbsp;&nbsp;&nbsp;현재 위치&nbsp;&nbsp;|&nbsp;&nbsp;{address}
+          </div>
+          <div style={{margin: "0 100px"}}>
+            <Searchmodal
+              show={show}
+              setShow={setShow}
+              setAddress={setAddress}   
+            ></Searchmodal>
+          </div>
+          
+          {console.log(`현재 위치: ${location.lat}, ${location.lng}`)}
+          {weather ? (
+            <CurrentWeatherBlock weather={weather[0]}></CurrentWeatherBlock>
+          ) : (
+            '날씨 불러오는 중...'
+          )}  
         </div>
-        <Searchmodal
-          show={show}
-          setShow={setShow}
-          setAddress={setAddress}
-        ></Searchmodal>
-        {console.log(`현재 위치: ${location.lat}, ${location.lng}`)}
-        {weather ? (
-          <CurrentWeatherBlock weather={weather[0]}></CurrentWeatherBlock>
-        ) : (
-          '현재 날씨 불러오는 중...'
-        )}
         <div id="main-container">
           <div id="main-weather">
             {weather ? (

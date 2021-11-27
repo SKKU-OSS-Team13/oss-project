@@ -4,9 +4,15 @@
   align-items: center;
   justify-content: center;
 }
+#main-top{
+  width: 1400px;
+  height: 100px;
+  margin: 20px 0px;
+  display: flex;
+  flex-direction: rows;
+}
 #main-container{
   width:1400px;
-  margin-top: 50px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -15,7 +21,7 @@
 #main-searchbar{
   display: flex;
   align-items: center;
-  width: 800px;
+  width: 600px;
   height: 40px;
   margin-top: 50px;
   border: 1px solid black;
@@ -25,10 +31,8 @@
 #main-weather{
   width:650px;
   height: 600px;
-  border: 1px solid black;
 }
 #main-clothes{
   width:650px;
   height: 600px;
-  border: 1px solid black;
 }
