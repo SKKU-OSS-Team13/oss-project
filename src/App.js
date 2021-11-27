@@ -123,7 +123,7 @@ function App() {
         </div>
       </div>
       <Footer></Footer>
-      <Email></Email>
+      <Email weather={weather}></Email>
     </div>
   );
 }
