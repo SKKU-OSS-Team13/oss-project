@@ -1,4 +1,4 @@
-#main-wrapper{
+#main-wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -16,23 +16,24 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content:space-between;
+  justify-content: space-between;
 }
-#main-searchbar{
+#main-searchbar {
   display: flex;
   align-items: center;
   width: 600px;
   height: 40px;
   margin-top: 50px;
+  margin-bottom: 30px;
   border: 1px solid black;
   border-radius: 5px;
-  cursor: pointer
+  cursor: pointer;
 }
-#main-weather{
-  width:650px;
+#main-weather {
+  width: 650px;
   height: 600px;
 }
-#main-clothes{
-  width:650px;
+#main-clothes {
+  width: 650px;
   height: 600px;
 }
