@@ -23,21 +23,26 @@ function App() {
   };
 
   // 현재 위치 저장
+  const getPosition = function (options) {
+    return new Promise(function (resolve, reject) {
+      navigator.geolocation.getCurrentPosition(resolve, reject, options);
+    });
+  };
+
   useEffect(() => {
-    navigator.geolocation.getCurrentPosition(
-      (position) => {
+    getPosition()
+      .then((position) => {
         console.log(
-          `latitude: ${position.coords.latitude}, longtitude: ${position.coords.longitude}`
+          `위치 latitude: ${position.coords.latitude}, longtitude: ${position.coords.longitude}`
         );
         setLocation({
           lat: position.coords.latitude,
           lng: position.coords.longitude,
         });
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
   }, []);
 
   // 검색한 주소로 위도, 경도 검색
@@ -80,30 +85,32 @@ function App() {
         console.log(res); // 결과를 console창에 표시합니다.
         setWeather(res);
       });
-  }, [location, weather.length]);
+  }, [location]);
 
   return (
     <div className="main-page">
       <Header></Header>
       <div id="main-wrapper">
         <div id="main-top">
-          <div id="main-searchbar" onClick={hadleClick} style={{margin: "auto 100px"}}>
+          <div
+            id="main-searchbar"
+            onClick={hadleClick}
+            style={{ margin: 'auto 100px' }}
+          >
             &nbsp;&nbsp;&nbsp;현재 위치&nbsp;&nbsp;|&nbsp;&nbsp;{address}
           </div>
-          <div style={{margin: "0 100px"}}>
+          <div style={{ margin: '0 100px' }}>
             <Searchmodal
               show={show}
               setShow={setShow}
-              setAddress={setAddress}   
+              setAddress={setAddress}
             ></Searchmodal>
           </div>
-          
-          {console.log(`현재 위치: ${location.lat}, ${location.lng}`)}
           {weather ? (
             <CurrentWeatherBlock weather={weather[0]}></CurrentWeatherBlock>
           ) : (
             '날씨 불러오는 중...'
-          )}  
+          )}
         </div>
         <div id="main-container">
           <div id="main-weather">

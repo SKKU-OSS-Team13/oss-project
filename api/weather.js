@@ -221,7 +221,7 @@ module.exports = class WeatherApiHandler {
           case 'TMP':
             info.temp = item.fcstValue;
             // 출력하는 데이터만큼의 온도만 저장
-            if (temp.length < 10) {
+            if (temp.length < 11) {
               temp.push(Number(item.fcstValue));
             }
             break;
