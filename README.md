@@ -37,13 +37,13 @@ npm start
 
 ### 현재 위치 기반 날씨 정보와 옷차림 추천
 
-![init](https://user-images.githubusercontent.com/71871348/143668929-c9028ead-d357-4e84-bb46-c99a640c80fe.PNG)
+![init](https://user-images.githubusercontent.com/71871348/143674354-b6251994-9a87-4012-9606-4724aa5ecfb2.PNG)
 
 ### 위치 검색을 통해 특정 지역의 날씨 정보와 옷차림 추천
 
-![search](https://user-images.githubusercontent.com/71871348/143668934-6faf7afe-8c55-4be8-a9e6-6347de8b19eb.PNG)
-![search-result](https://user-images.githubusercontent.com/71871348/143668936-2d06e869-f538-4366-99fb-7cedffc36549.PNG)
-![search-result2](https://user-images.githubusercontent.com/71871348/143668939-891f5e03-2b99-4d3d-935d-2679b5a5299e.PNG)
+![search](https://user-images.githubusercontent.com/71871348/143674362-add74b8b-e6b9-421d-9dfa-b75c9f337261.PNG)
+![search-result](https://user-images.githubusercontent.com/71871348/143674366-a5fa0ecb-bb4f-48cf-9ba1-f1ff91e4e4ea.PNG)
+![search-result2](https://user-images.githubusercontent.com/71871348/143674367-ea55728f-0d75-40f0-85ae-1d4a51ec343d.PNG)
 
 ### 이메일 받기
 
