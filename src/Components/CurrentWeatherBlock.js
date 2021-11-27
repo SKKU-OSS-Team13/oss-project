@@ -45,9 +45,10 @@ function CurrentWeatherBlock(weather) {
         alt="날씨 아이콘"
         width="50"
       />
-      <p>현재 온도: {weather.weather.temp}</p>
+      <p>현재 온도: {weather.weather.temp} &deg;C</p>
       <p>
-        최저: {weather.weather.minTemp} / 최고: {weather.weather.maxTemp}
+        최저: {weather.weather.minTemp} &deg;C / 최고: {weather.weather.maxTemp}{' '}
+        &deg;C
       </p>
     </div>
   );
