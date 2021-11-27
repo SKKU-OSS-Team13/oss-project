@@ -52,7 +52,7 @@ npm start
 - [기상청 단기예보 조회 서비스](https://www.data.go.kr/data/15084084/openapi.do)
 - [다음 위치 검색 API](https://postcode.map.daum.net/guide)
 - [Kakao developers 로컬 API](https://developers.kakao.com/docs/latest/ko/local/common)
-- 이메일
+- [EmailJS](https://www.emailjs.com/)
 
 ## Releases (versions)
 
