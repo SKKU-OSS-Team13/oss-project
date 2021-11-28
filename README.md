@@ -52,6 +52,8 @@ npm start
 
 ### 이메일 받기
 
+<img width="385" alt="KakaoTalk_Photo_2021-11-28-15-41-10-1" src="https://user-images.githubusercontent.com/67233988/143732437-1554676c-7805-4e0c-948b-4968d5b74169.png">
+
 ## demo video
 
 
