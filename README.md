@@ -37,17 +37,25 @@ npm start
 
 ### 현재 위치 기반 날씨 정보와 옷차림 추천
 
-![init](https://user-images.githubusercontent.com/71871348/143674354-b6251994-9a87-4012-9606-4724aa5ecfb2.PNG)
+![init](https://user-images.githubusercontent.com/71871348/143726144-ed494398-251b-4116-ad47-5ca903a1131b.PNG)
 
 ### 위치 검색을 통해 특정 지역의 날씨 정보와 옷차림 추천
 
-![search](https://user-images.githubusercontent.com/71871348/143674362-add74b8b-e6b9-421d-9dfa-b75c9f337261.PNG)
-![search-result](https://user-images.githubusercontent.com/71871348/143674366-a5fa0ecb-bb4f-48cf-9ba1-f1ff91e4e4ea.PNG)
-![search-result2](https://user-images.githubusercontent.com/71871348/143674367-ea55728f-0d75-40f0-85ae-1d4a51ec343d.PNG)
+![search](https://user-images.githubusercontent.com/71871348/143726147-d5f79ac8-caea-415a-8e77-9c550d9669f1.PNG)
+![search-result](https://user-images.githubusercontent.com/71871348/143726155-c470ea21-aa3e-4df3-8168-49b45e8322c8.PNG)
+![search-result2](https://user-images.githubusercontent.com/71871348/143726156-116a3abe-de24-4c42-b9d7-3be872f0ce2d.PNG)
+
+### 다양한 스타일 보기
+
+![newstyle](https://user-images.githubusercontent.com/71871348/143726149-11326a18-58aa-43ec-8eb6-286f997b514d.gif)
 
 ### 이메일 받기
 
 ## demo video
+
+
+https://user-images.githubusercontent.com/71871348/143726164-f46c890e-9970-4d0d-a2e7-58226c200663.mp4
+
 
 ## API reference
 
@@ -55,8 +63,6 @@ npm start
 - [다음 위치 검색 API](https://postcode.map.daum.net/guide)
 - [Kakao developers 로컬 API](https://developers.kakao.com/docs/latest/ko/local/common)
 - [EmailJS](https://www.emailjs.com/)
-
-## Releases (versions)
 
 ## License
 
