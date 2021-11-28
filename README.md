@@ -58,6 +58,16 @@ npm start
 
 ## Releases (versions)
 
+### 1.0.0
+오늘 뭐 입지의 초기 버전
+
+bug report: navigator.geolocation.getCurrentPosition가 HTTP에서 작동하지 않아 HTTPS서버에서 실행해야한다.
+
+### 1.1.0
+1.0.0에서 디자인을 수정했다.
+
+
+
 ## License
 
 This project is licensed under the terms of the MIT license.
