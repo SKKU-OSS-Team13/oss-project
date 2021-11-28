@@ -7,7 +7,7 @@ function ClothesViwer(weather) {
   let clothes,
     clothesText = [];
   const selectClothes = (weather) => {
-    let temp = weather.weather.temp;
+    let temp = weather.weather[0].temp;
     if (temp <= 4) {
       clothes = 1;
       clothesText = ['패딩', '두꺼운 코드', '목도리', '기모 제품'];
@@ -37,14 +37,23 @@ function ClothesViwer(weather) {
 
   const makeComment = (weather) => {
     console.log('weather', weather);
-    let high_temp = weather.weather.maxTemp;
-    let low_temp = weather.weather.minTemp;
-    let precipitation = weather.weather.precipation;
+    let high_temp = weather.weather[0].maxTemp;
+    let low_temp = weather.weather[0].minTemp;
+    let umbrella = false;
+    console.log(weather.weather[0].precipitation);
+    for (let i = 0; i < 11; i++) {
+      let precipitation = weather.weather[i].precipitation;
+      if (Number(precipitation.substring(0, precipitation.length - 1)) >= 40) {
+        umbrella = true;
+        break;
+      }
+    }
+
     let comment1 = '';
     if (high_temp - low_temp >= 5) {
       comment1 += '일교차가 크니 겉옷을 챙기세요.\n';
     }
-    if (precipitation >= 40) {
+    if (umbrella) {
       comment1 += '비가 올 수 있으니 우산을 챙기세요.\n';
     }
     return comment1;
@@ -54,7 +63,7 @@ function ClothesViwer(weather) {
     return (
       <img
         src={source}
-        style={{ width: '250px', height: '90px' }}
+        style={{ width: '250px', height: '90px', margin: '0px 0px 0px 30px' }}
         alt="옷"
       ></img>
     );
@@ -64,7 +73,7 @@ function ClothesViwer(weather) {
     return (
       <img
         src={source}
-        style={{ width: '380px', height: '570px' }}
+        style={{ width: '365px', height: '530px' }}
         alt="옷"
       ></img>
     );
@@ -82,26 +91,52 @@ function ClothesViwer(weather) {
     <div className="clothes-container">
       {console.log(weather)}
       <div className="clothes-left">
-        <div style={{ margin: '10px 0' }}>
-          <h4>오늘은 어떻게 입어야 할까요?</h4>
+        <div style={{ margin: '200px 0px 0px 20px' }}>
+          <h4 class="text">오늘은 어떻게 입어야 할까요?</h4>
+          <div id="clothes-comment" class="text">
+            {makeComment(weather)}
+          </div>
         </div>
-        <div id="clothes-comment">{makeComment(weather)}</div>
-        <div id="clothes-clothes" style={{ margin: '10px 0' }}>
-          {loadClothesImage()}
-        </div>
-        <h4 style={{ margin: '20px auto' }}>오늘의 추천 스타일!</h4>
-        <ul style={{ margin: '10px auto', fontSize: '20px' }}>
+
+        <div id="clothes-picture">{loadClothesImage()}</div>
+        <ul id="clothes-text" class="text">
           {clothesText.map((text) => (
             <li>{text}</li>
           ))}
         </ul>
       </div>
 
-      <div id="clothes-style">
+      <div id="clothes-right">
+        <div className="title__button">
+          <h4 id="recommended-style" class="text">
+            오늘의 추천 스타일!
+          </h4>
+          <button
+            id="newStyle-button"
+            onClick={handleClick}
+            type="button"
+            class="btn btn-secondary"
+          >
+            <img
+              id="refresh-icon"
+              src="refresh.png"
+              width="30"
+              height="30"
+              alt=""
+            ></img>
+            <p
+              class="text"
+              style={{
+                fontSize: 15,
+                color: 'white',
+                margin: '2px 0px 0px 10px',
+              }}
+            >
+              New Style
+            </p>
+          </button>
+        </div>
         {loadStyleImage()}
-        <button onClick={handleClick} style={{ width: '380px' }}>
-          New Style
-        </button>
       </div>
     </div>
   );

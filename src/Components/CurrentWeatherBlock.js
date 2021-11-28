@@ -8,6 +8,8 @@ import rain from '../Image/rain.png';
 import rainsnow from '../Image/rainsnow.png';
 import snow from '../Image/snow.png';
 
+import './CurrentWeatherBlock.css';
+
 function CurrentWeatherBlock(weather) {
   const selectIcon = (sky, pty) => {
     if (pty) {
@@ -39,19 +41,22 @@ function CurrentWeatherBlock(weather) {
   };
 
   return (
-    <div className="weather__block" style={{display: "flex", flexDirection: "row", margin: "auto 0"}}>
+    <div id="current-weather" className="weather__block" style={{display: "flex", flexDirection: "row", margin: "0px 0px"}}>
       <div>
         <img
           src={selectIcon(weather.weather.sky, weather.weather.pty)}
           alt="날씨 아이콘"
           width="70px"
-          style={{margin: "0 20px"}}
+          style={{margin: "15px 20px"}}
         />
       </div>
       <div>
-        <p>현재 온도: {weather.weather.temp} &deg;C </p>
-        <p>
-          최저: {weather.weather.minTemp} &deg;C / 최고: {weather.weather.maxTemp} &deg;C
+        <p class="weather-text">현재 온도: {weather.weather.temp} &deg;C </p>
+        <p class="weather-text">
+          최저: {weather.weather.minTemp} &deg;C
+        </p>
+        <p class="weather-text">
+          최고: {weather.weather.maxTemp} &deg;C
         </p>
       </div>
       

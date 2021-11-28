@@ -54,7 +54,7 @@ function WeatherComponent(weather) {
   };
 
   return (
-    <div className="weather__container">
+    <div className="weather__container" style={{background:"white"}}>
       <Table className="weather__table">
         <TableHead>
           <TableRow>
