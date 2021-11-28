@@ -4,17 +4,15 @@
 
 ## A brief overview
 
-Our web page("오늘 뭐 입지?") recommends clothes based on weather. After receiving the user's location and current time automatically,  
-it shows :
+저희 웹사이트는 날씨에 따라 옷을 추천합니다. 사용자의 위치와 현재 시간을 자동으로 수신한 후,
+다음 내용들을 표시합니다.
 
-1. the weather from now to after 10 hours, and recommended clothes accordingly.(The user can also set the location through regional search)
+1. 현재 시간부터 10시간 후까지 1시간 마다의 날씨(사용자는 지역 검색을 통해 위치를 다른 곳으로도 설정할 수 있습니다.)
+2. 기온에 따라 추천된 가장 기본적인 옷의 이미지와 텍스트.
+3. 강수 확률과 10시간 동안의 온도차에 따라 우산이나 겉옷을 챙기라고 추천하는 문구
+4. 현재 온도에서 착용할만한 전신 코디 사진, (버튼을 클릭 시 다른 추천 코디 사진이 표시됩니다.)
 
-2. the recommended clothes according to the temperature as the most basic clothing image and text.
-3. the recommendation text to pack umbrellas or outerwear depending on the probability of precipitation and daily temperature difference.
-
-4. a full-body coordination picture that people wear at the current temperature, and show another recommended coordination picture when clicking the button.
-
-Also, the weather and recommended clothes are sent to the user's e-mail every morning if user wants.
+또한 사용자가 원할 경우 매일 아침 날씨와 추천 옷차림을 사용자의 이메일로 전송합니다.
 
 ## Installation
 
@@ -66,13 +64,13 @@ https://user-images.githubusercontent.com/71871348/143726164-f46c890e-9970-4d0d-
 
 ## License
 
-This project is licensed under the terms of the MIT license.
+이 프로젝트는 MIT 라이센스 조항에 따라 라이센스가 부여됩니다.
 
 ## Code of Conduct
 
-• Safe work environments  
-• Mutual respect  
-• Empathy and kindness  
-• Constructive feedback
+• 안전한 작업 환경
+• 존중
+• 공감과 친절
+• 건설적인 피드백
 
 ---
