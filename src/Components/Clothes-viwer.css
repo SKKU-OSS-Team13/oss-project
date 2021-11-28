@@ -1,30 +1,30 @@
-.clothes-container{
-  display:flex;
+.clothes-container {
+  display: flex;
   flex-direction: row;
   height: 594px;
   background: white;
 }
-.clothes-left{
+.clothes-left {
   display: flex;
   flex-direction: column;
 }
 
-#clothes-comment{
+#clothes-comment {
   position: relative;
   left: 10px;
   white-space: pre-wrap;
   margin: 10px 0px 0px 0px;
   font-size: 18px;
-  color:black;
+  color: black;
   font-weight: normal;
 }
 
-#clothes-picture{
+#clothes-picture {
   position: absolute;
   top: 550px;
 }
 
-#clothes-text{
+#clothes-text {
   white-space: pre-wrap;
   position: absolute;
   top: 650px;
@@ -34,7 +34,7 @@
   font-weight: normal;
 }
 
-#clothes-right{
+#clothes-right {
   display: flex;
   flex-direction: column;
   width: 370px;
@@ -43,24 +43,29 @@
   margin: 10px auto;
 }
 
+#clothes-right .title__button {
+  display: flex;
+}
+
 #recommended-style {
   position: relative;
   left: 0px;
   top: 5px;
   margin: 0px 0px 20px 0px;
   display: flex;
+  padding-right: 30px;
 }
 
 #newStyle-button {
-  position: absolute;
+  /*position: absolute;*/
   left: 1270px;
   width: 150px;
   height: 40px;
   display: flex;
-} 
+}
 
-.text{
-  font-family: "Cafe24";
+.text {
+  font-family: 'Cafe24';
   color: rgb(62, 93, 117);
   font-size: 25px;
   font-weight: bold;

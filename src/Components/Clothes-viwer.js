@@ -37,18 +37,18 @@ function ClothesViwer(weather) {
 
   const makeComment = (weather) => {
     console.log('weather', weather);
-    let high_temp =weather.weather[0].maxTemp;
+    let high_temp = weather.weather[0].maxTemp;
     let low_temp = weather.weather[0].minTemp;
-    let umbrella=false;
+    let umbrella = false;
     console.log(weather.weather[0].precipitation);
-    for(let i=0;i<11;i++){
+    for (let i = 0; i < 11; i++) {
       let precipitation = weather.weather[i].precipitation;
-      if(Number(precipitation.substring(0,precipitation.length-1)) >= 40){
-        umbrella=true;
+      if (Number(precipitation.substring(0, precipitation.length - 1)) >= 40) {
+        umbrella = true;
         break;
       }
     }
-    
+
     let comment1 = '';
     if (high_temp - low_temp >= 5) {
       comment1 += '일교차가 크니 겉옷을 챙기세요.\n';
@@ -63,7 +63,7 @@ function ClothesViwer(weather) {
     return (
       <img
         src={source}
-        style={{ width: '250px', height: '90px', margin: "0px 0px 0px 30px" }}
+        style={{ width: '250px', height: '90px', margin: '0px 0px 0px 30px' }}
         alt="옷"
       ></img>
     );
@@ -93,21 +93,49 @@ function ClothesViwer(weather) {
       <div className="clothes-left">
         <div style={{ margin: '200px 0px 0px 20px' }}>
           <h4 class="text">오늘은 어떻게 입어야 할까요?</h4>
-          <div id="clothes-comment" class="text" >{makeComment(weather)}</div>
+          <div id="clothes-comment" class="text">
+            {makeComment(weather)}
+          </div>
         </div>
 
         <div id="clothes-picture">{loadClothesImage()}</div>
         <ul id="clothes-text" class="text">
-          {clothesText.map((text) => <li>{text}</li>)}
+          {clothesText.map((text) => (
+            <li>{text}</li>
+          ))}
         </ul>
       </div>
 
       <div id="clothes-right">
-        <h4 id="recommended-style" class="text">오늘의 추천 스타일!</h4>
-        <button id="newStyle-button" onClick={handleClick} type="button" class="btn btn-secondary">
-          <img id="refresh-icon" src="refresh.png" width="30" height="30" alt=""></img>
-          <p class="text" style={{fontSize: 15, color: "white", margin:"2px 0px 0px 10px"}}>New Style</p>
-        </button>
+        <div className="title__button">
+          <h4 id="recommended-style" class="text">
+            오늘의 추천 스타일!
+          </h4>
+          <button
+            id="newStyle-button"
+            onClick={handleClick}
+            type="button"
+            class="btn btn-secondary"
+          >
+            <img
+              id="refresh-icon"
+              src="refresh.png"
+              width="30"
+              height="30"
+              alt=""
+            ></img>
+            <p
+              class="text"
+              style={{
+                fontSize: 15,
+                color: 'white',
+                margin: '2px 0px 0px 10px',
+              }}
+            >
+              New Style
+            </p>
+          </button>
+        </div>
         {loadStyleImage()}
       </div>
     </div>

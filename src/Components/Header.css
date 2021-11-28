@@ -15,7 +15,7 @@
   left: 640px;
   display: flex;
   line-height: 5rem;
-  font-family: "Cafe24";
+  font-family: 'Cafe24';
   color: white;
   font-size: 40px;
   font-weight: bold;
@@ -24,7 +24,7 @@
   position: absolute;
   right: 50px;
   display: flex;
-  font-family: "Cafe24";
+  font-family: 'Cafe24';
   line-height: 3.5rem;
   color: white;
   font-weight: lighter;
@@ -33,7 +33,7 @@
   position: absolute;
   right: 50px;
   display: flex;
-  font-family: "Cafe24";
+  font-family: 'Cafe24';
   line-height: 6.5rem;
   color: white;
   font-weight: normal;

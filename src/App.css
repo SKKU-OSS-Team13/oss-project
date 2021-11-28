@@ -1,6 +1,6 @@
 @font-face {
-  font-family: "Cafe24";
-  src: url("./font/ONEMobilePOPOTF.otf");
+  font-family: 'Cafe24';
+  src: url('./font/ONEMobilePOPOTF.otf');
 }
 
 #main-wrapper {
@@ -9,17 +9,16 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  
 }
-#main-top{
+#main-top {
   width: 1400px;
   height: 100px;
   margin: 20px 0px;
   display: flex;
   flex-direction: rows;
 }
-#main-container{
-  width:1400px;
+#main-container {
+  width: 1400px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -36,6 +35,11 @@
   border-radius: 5px;
   cursor: pointer;
 }
+
+.weather__block {
+  position: relative;
+}
+
 #main-weather {
   width: 600px;
   height: 600px;
@@ -46,6 +50,6 @@
 }
 
 .searchbar-text {
-  font-family: "Cafe24";
+  font-family: 'Cafe24';
   font-weight: normal;
 }
