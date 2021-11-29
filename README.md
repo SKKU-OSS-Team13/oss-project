@@ -29,7 +29,7 @@ npm start
 
 1. "git clone https://github.com/SKKU-OSS-Team13/oss-project.git" 명령어로 repository 내용을 로컬에 가져온다.
 3. "cd oss-project" 명령어로 oss-project디렉토리에 들어가 "npm install" 명령어를 입력한다.
-4. "npm start" 명령어로 홈페이지에 접속한다.
+4. "npm start" 명령어로 홈페이지에 접속한다.  
 ![image](https://user-images.githubusercontent.com/82808735/143876899-fec42f80-c616-41ca-b481-a72df6566ceb.png)
 
 6. 처음 접속하면 현재 위치를 기반으로 날씨 정보와 옷차림을 추천하여 보여준다.
